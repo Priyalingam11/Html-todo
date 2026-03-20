@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To-Do</title>
+  <style>
+    body{font-family:Arial,sans-serif;margin:20px}
+    li{margin:5px 0}
+    .done{text-decoration:line-through;color:#777}
+  </style>
+</head>
+<body>
+  <h2>To-Do List</h2>
+  <input id="task" placeholder="New task...">
+  <button onclick="add()">Add</button>
+  <ul id="list"></ul>
+  <script>
+    function add(){
+      const t=document.getElementById('task');
+      if(!t.value) return;
+      const li=document.createElement('li');
+      li.textContent=t.value;
+      li.onclick=()=>li.classList.toggle('done');
+      document.getElementById('list').appendChild(li);
+      t.value='';
+    }
+  </script>
+</body>
+</html>
